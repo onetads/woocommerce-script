@@ -1,1 +1,1 @@
-# woocommerce-script
+# wordpress-plugin
