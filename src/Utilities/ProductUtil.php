@@ -15,7 +15,7 @@ class ProductUtil
     }
 
 
-    public function check_product_stock(): bool
+    public function is_product_in_stock(): bool
     {
         /** @var WC_Product $product */
         $product = wc_get_product($this->product_id);

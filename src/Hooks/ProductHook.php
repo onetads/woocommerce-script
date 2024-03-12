@@ -18,10 +18,10 @@ class ProductHook
         $view = $request->get_param('view');
 
         $productUtil = new ProductUtil($product_id);
-        if (!$productUtil->check_product_stock()) {
+        if (!$productUtil->is_product_in_stock()) {
             return new WP_REST_Response(
-                'not found',
-                '200'
+                'Product not found',
+                '404'
             );
         }
 

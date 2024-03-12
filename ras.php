@@ -56,15 +56,4 @@ class Ras
 }
 
 add_action('rest_api_init', [new Ras(), 'ras_register_routes']);
-    /**
-     * @return void
-     */
-    public function ras_check_versions(): void
-    {
-        $plugin_data = get_plugin_data(plugin_dir_path(__FILE__) . $GLOBALS['RAS']['PLUGIN_FILENAME']);
-        $GLOBALS['RAS']['VERSION'] = $plugin_data['Version'];
-        new CheckVersionHook();
-    }
-}
-
 add_action('plugins_loaded', [new Ras(), 'ras_check_versions']);
