@@ -9,6 +9,18 @@ require_once $GLOBALS['RAS']['PATH'] . 'src/Hooks/CheckVersionHook.php';
 require_once $GLOBALS['RAS']['PATH'] . 'src/Hooks/ProductHook.php';
 require_once $GLOBALS['RAS']['PATH'] . 'src/Utilities/ProductUtil.php';
 
+/**
+ * @package Ras
+ * @version 1.0
+ */
+/*
+Plugin Name: RAS - Onet Ads
+Plugin URI: https://ads.onet.pl/
+Description: RAS - Onet Ads
+Author: RAS
+Version: 1.0
+Author URI: https://ads.onet.pl/
+*/
 class Ras
 {
 
