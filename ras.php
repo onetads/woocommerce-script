@@ -1,9 +1,11 @@
 <?php
 namespace Ras;
-
+use Ras\Hooks\CheckVersionHook;
 use Ras\Hooks\ProductHook;
 use WP_REST_Server;
 
+require_once $GLOBALS['RAS']['PATH'] . 'src/Utilities/RasSettings.php';
+require_once $GLOBALS['RAS']['PATH'] . 'src/Hooks/CheckVersionHook.php';
 require_once $GLOBALS['RAS']['PATH'] . 'src/Hooks/ProductHook.php';
 require_once $GLOBALS['RAS']['PATH'] . 'src/Utilities/ProductUtil.php';
 
@@ -41,5 +43,28 @@ class Ras
         $productHook = new ProductHook();
         return $productHook->ras_get_product_html($request);
     }
+
+    /**
+     * @return void
+     */
+    public function ras_check_versions(): void
+    {
+        $plugin_data = get_plugin_data(plugin_dir_path(__FILE__) . $GLOBALS['RAS']['PLUGIN_FILENAME']);
+        $GLOBALS['RAS']['VERSION'] = $plugin_data['Version'];
+        new CheckVersionHook();
+    }
 }
+
 add_action('rest_api_init', [new Ras(), 'ras_register_routes']);
+    /**
+     * @return void
+     */
+    public function ras_check_versions(): void
+    {
+        $plugin_data = get_plugin_data(plugin_dir_path(__FILE__) . $GLOBALS['RAS']['PLUGIN_FILENAME']);
+        $GLOBALS['RAS']['VERSION'] = $plugin_data['Version'];
+        new CheckVersionHook();
+    }
+}
+
+add_action('plugins_loaded', [new Ras(), 'ras_check_versions']);
