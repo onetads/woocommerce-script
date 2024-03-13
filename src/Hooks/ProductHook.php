@@ -25,6 +25,11 @@ class ProductHook
             );
         }
 
+//        $productUtil->get_product_html();
+
+//        $productUtil->get_related_html();
+
+        $productUtil->get_product_cat_html();
     }
 
 
