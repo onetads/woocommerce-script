@@ -4,8 +4,6 @@ namespace Ras\Hooks;
 
 use Ras\Utilities\RasSettings;
 
-require_once(ABSPATH . 'wp-admin/includes/plugin.php');
-
 class CheckVersionHook
 {
     public function __construct()
@@ -19,6 +17,11 @@ class CheckVersionHook
      */
     private function ras_check_woocommerce_version(): void
     {
+        if (!class_exists(RasSettings::WOOCOMMERCE_CLASS_NAME)) {
+            deactivate_plugins($GLOBALS['RAS']['PATH'] . $GLOBALS['RAS']['PLUGIN_FILENAME']);
+            return;
+        }
+
         if (version_compare(WC()->version, RasSettings::MIN_SUPPORTED_WOOCOMMERCE_VERSION, '<')) {
             deactivate_plugins($GLOBALS['RAS']['PATH'] . $GLOBALS['RAS']['PLUGIN_FILENAME']);
         }
