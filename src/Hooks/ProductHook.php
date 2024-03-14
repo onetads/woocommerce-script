@@ -8,10 +8,6 @@ use WP_REST_Response;
 
 class ProductHook
 {
-    public function __construct()
-    {
-    }
-
     public function ras_get_product_html(WP_REST_Request $request)
     {
         $product_id = $request->get_param('product_id');
