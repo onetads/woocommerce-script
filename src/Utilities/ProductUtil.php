@@ -3,6 +3,7 @@
 namespace Ras\Utilities;
 
 
+use Ras\Exceptions\RasBlockNotFoundException;
 use WC_Product;
 use WP_Block_Patterns_Registry;
 use WP_Post;
@@ -12,7 +13,7 @@ class ProductUtil
     private int $product_id;
     private bool $is_block_theme;
 
-    private array $templateFromView = [
+    private array $template_from_view = [
         'single-product' => 'single-product.php',
         'category' => 'taxonomy-product_cat.php',
         'home' => 'archive-product.php',
@@ -50,6 +51,7 @@ class ProductUtil
 
     /**
      * @param string $view
+     * @throws RasBlockNotFoundException
      */
     public function get_product_html(
         string $view
@@ -68,6 +70,7 @@ class ProductUtil
      * @param string $view
      * @param WP_Post $post
      * @return void
+     * @throws RasBlockNotFoundException
      */
     private function render_content_for_block_template(
         string  $view,
@@ -76,22 +79,26 @@ class ProductUtil
     {
         global $_wp_current_template_content;
 
-        $template = $this->templateFromView[$view] ?? self::DEFAULT_TEMPLATE;
+        $template = $this->template_from_view[$view] ?? self::DEFAULT_TEMPLATE;
         locate_block_template('', $view, [$template]);
 
         $blocks = parse_blocks($_wp_current_template_content);
-        $postTemplateBlock = $this->find_core_post_template_block($blocks)
+        $post_template_block = $this->find_core_post_template_block($blocks)
             ?? $this->find_core_post_template_block($this->get_related_products_block_from_pattern());
+
+        if ($post_template_block == null) {
+            throw new RasBlockNotFoundException();
+        }
 
         $block_content = '';
 
-        foreach ($postTemplateBlock['innerBlocks'] as $block) {
+        foreach ($post_template_block['innerBlocks'] as $block) {
             $block_content .= render_block($block);
         }
 
         echo self::wrap_block_into_list($post, $block_content);
 
-        die();
+        exit();
     }
 
     /**
@@ -107,7 +114,8 @@ class ProductUtil
         wc_get_template_part(self::NON_BLOCK_TEMPLATE_PART_SLUG, self::NON_BLOCK_TEMPLATE_PART_NAME);
 
         wp_reset_postdata();
-        die();
+
+        exit();
     }
 
     /**
@@ -116,24 +124,24 @@ class ProductUtil
      */
     private function find_core_post_template_block($blocks)
     {
-        $blockName = 'core/post-template';
-        $postTemplateBlock = null;
+        $block_name = 'core/post-template';
+        $post_template_block = null;
 
         foreach ($blocks as $block) {
-            if ($block['blockName'] == $blockName) {
-                $postTemplateBlock = $block;
+            if ($block['blockName'] == $block_name) {
+                $post_template_block = $block;
             }
 
-            if ($postTemplateBlock) {
+            if ($post_template_block) {
                 break;
             }
 
             if (!empty($block['innerBlocks'])) {
-                $postTemplateBlock = $this->find_core_post_template_block($block['innerBlocks']);
+                $post_template_block = $this->find_core_post_template_block($block['innerBlocks']);
             }
         }
 
-        return $postTemplateBlock;
+        return $post_template_block;
     }
 
     /**
