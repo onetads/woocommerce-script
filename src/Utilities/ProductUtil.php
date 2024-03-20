@@ -86,7 +86,7 @@ class ProductUtil
         $post_template_block = $this->find_core_post_template_block($blocks)
             ?? $this->find_core_post_template_block($this->get_related_products_block_from_pattern());
 
-        if ($post_template_block == null) {
+        if ($post_template_block == null || empty($post_template_block['innerBlocks'])) {
             throw new RasBlockNotFoundException();
         }
 
