@@ -9,14 +9,13 @@ include 'autoload.php';
 /**
  * @package Ras
  * @version 1.0
- */
-/*
-Plugin Name: RAS - Onet Ads
-Plugin URI: https://ads.onet.pl/
-Description: RAS - Onet Ads
-Author: RAS
-Version: 1.0
-Author URI: https://ads.onet.pl/
+ * Plugin Name: Retail Media Network - Onet Ads
+ * Plugin URI: https://panel.onetads.pl
+ * Description: Błyskawiczna integracja Woocommerce z Retail Media Network w Onet Ads. Wykorzystaj ten plugin, żeby szybko i intuicyjnie zaimplementować nasze formaty reklamowe w swoim sklepie.
+ * Author: Ringier Axel Springer Polska sp. z o.o.
+ * Text Domain: onet-ads-rmn
+ * Author URI: https://ringieraxelspringer.pl/
+ * Version: 1.0
 */
 class Ras
 {
