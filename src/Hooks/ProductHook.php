@@ -17,7 +17,6 @@ class ProductHook
     public function ras_get_product_html(WP_REST_Request $request)
     {
         $product_id = $request->get_param('product_id');
-        $view = $request->get_param('view');
 
         $productUtil = new ProductUtil($product_id);
         if (!$productUtil->is_product_in_stock()) {
@@ -27,15 +26,7 @@ class ProductHook
             );
         }
 
-        try {
-            $productUtil->get_product_html($view);
-        } catch (RasBlockNotFoundException $exception) {
-            return new WP_REST_Response(
-                $exception->getMessage(),
-                $exception->getCode()
-            );
-        }
-
+        $productUtil->get_product_html();
     }
 
 

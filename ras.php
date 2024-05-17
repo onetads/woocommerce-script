@@ -1,5 +1,7 @@
 <?php
+
 namespace Ras;
+
 use Ras\Hooks\CheckVersionHook;
 use Ras\Hooks\ProductHook;
 use WP_REST_Server;
@@ -16,7 +18,7 @@ include 'autoload.php';
  * Text Domain: onet-ads-rmn
  * Author URI: https://ringieraxelspringer.pl/
  * Version: 1.0
-*/
+ */
 class Ras
 {
 
@@ -37,9 +39,6 @@ class Ras
                     'validate_callback' => function ($param) {
                         return is_numeric($param);
                     }
-                ],
-                'view' => [
-                    'required' => true,
                 ],
             ],
             'permission_callback' => '__return_true'
