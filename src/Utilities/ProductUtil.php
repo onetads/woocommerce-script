@@ -2,10 +2,7 @@
 
 namespace Ras\Utilities;
 
-
-use Ras\Exceptions\RasBlockNotFoundException;
 use WC_Product;
-use WP_Block_Patterns_Registry;
 use WP_Post;
 
 class ProductUtil

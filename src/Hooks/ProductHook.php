@@ -2,7 +2,6 @@
 
 namespace Ras\Hooks;
 
-use Ras\Exceptions\RasBlockNotFoundException;
 use Ras\Utilities\ProductUtil;
 use WP_REST_Request;
 use WP_REST_Response;
