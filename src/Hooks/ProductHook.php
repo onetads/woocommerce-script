@@ -27,7 +27,7 @@ class ProductHook
 
         wp_send_json([
             'product_html' => $productUtil->get_product_html(),
-            'link_html' => $productUtil->get_product_link_html()
+            'link_url' => $productUtil->get_product_link_html()
         ]);
     }
 
@@ -71,7 +71,7 @@ class ProductHook
         $promoTags = $productUtil->get_product_promo_tag();
 
         wp_send_json([
-            'list_container_html' => $productUtil->get_product_list_container_tag(),
+            'list_container_tag' => $productUtil->get_product_list_container_tag(),
             'product_tag' => $productUtil->get_product_tag(),
             'original_promo_tag' => $promoTags['original'],
             'substitute_promo_tag' => $promoTags['substitute'],
