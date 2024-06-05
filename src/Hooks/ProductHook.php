@@ -25,9 +25,10 @@ class ProductHook
             ], 404);
         }
 
-        $productUtil->get_product_html();
-
-        exit();
+        wp_send_json([
+            'product_html' => $productUtil->get_product_html(),
+            'link_html' => $productUtil->get_product_link_html()
+        ]);
     }
 
     public function return_required_html_elements(): void

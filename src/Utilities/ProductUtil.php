@@ -39,13 +39,13 @@ class ProductUtil
         return true;
     }
 
-    public function get_product_html(): void
+    public function get_product_html(): string
     {
         global $post;
 
         $post = get_post($this->product_id);
 
-        $this->render_content_for_template($post);
+        return $this->get_content_for_template($post);
     }
 
     public function get_product_list_container_html(): string
@@ -59,15 +59,9 @@ class ProductUtil
 
     public function get_product_tag(): ?string
     {
-        ob_start();
-
-        $this->get_product_html();
-
-        $productHtml = ob_get_clean();
-
         $dom = new DOMDocument();
         libxml_use_internal_errors(true);
-        $dom->loadHTML($productHtml);
+        $dom->loadHTML($this->get_product_html());
         libxml_clear_errors();
 
         $xpath = new DOMXPath($dom);
@@ -115,16 +109,22 @@ class ProductUtil
 
     /**
      * @param WP_Post $post
-     * @return void
+     * @return string
      */
-    private function render_content_for_template(
+    private function get_content_for_template(
         WP_Post $post
-    ): void
+    ): string
     {
         setup_postdata($post);
 
+        ob_start();
+
         wc_get_template_part(self::TEMPLATE_PART_SLUG, self::TEMPLATE_PART_NAME);
 
+        $contentTemplate = ob_get_clean();
+
         wp_reset_postdata();
+
+        return $contentTemplate;
     }
 }
