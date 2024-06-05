@@ -98,6 +98,14 @@ class ProductUtil
 
     public function get_product_promo_tag(): string
     {
+        global $product;
+
+        $product->set_sale_price(0);
+
+        $product->set_date_on_sale_from();
+
+        $product->set_date_on_sale_to();
+
         ob_start();
 
         woocommerce_show_product_loop_sale_flash();
