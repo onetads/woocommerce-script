@@ -44,7 +44,7 @@ class Ras
             'permission_callback' => '__return_true'
         ]);
 
-        register_rest_route('ras', '/get-product-list-html', [
+        register_rest_route('ras', '/get-html-templates', [
             'methods' => WP_REST_Server::READABLE,
             'callback' => [$this, 'ras_get_product_list_html'],
             'permission_callback' => '__return_true'
