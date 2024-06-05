@@ -43,12 +43,26 @@ class Ras
             ],
             'permission_callback' => '__return_true'
         ]);
+
+        register_rest_route('ras', '/get-html-templates', [
+            'methods' => WP_REST_Server::READABLE,
+            'callback' => [$this, 'ras_get_product_list_html'],
+            'permission_callback' => '__return_true'
+        ]);
     }
 
-    public function ras_get_product_html($request)
+    public function ras_get_product_html($request): void
     {
         $productHook = new ProductHook();
-        return $productHook->ras_get_product_html($request);
+
+        $productHook->ras_get_product_html($request);
+    }
+
+    public function ras_get_product_list_html(): void
+    {
+        $productHook = new ProductHook();
+
+        $productHook->return_required_html_elements();
     }
 
     /**
