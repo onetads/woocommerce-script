@@ -68,11 +68,13 @@ class ProductHook
 
         $productUtil = new ProductUtil($productId);
 
+        $promoTags = $productUtil->get_product_promo_tag();
+
         wp_send_json([
-            'list_container_html' => $productUtil->get_product_list_container_html(),
+            'list_container_html' => $productUtil->get_product_list_container_tag(),
             'product_tag' => $productUtil->get_product_tag(),
-            'link_html' => $productUtil->get_product_link_html(),
-            'promo_tag' => $productUtil->get_product_promo_tag(),
+            'original_promo_tag' => $promoTags['original'],
+            'substitute_promo_tag' => $promoTags['substitute'],
         ]);
     }
 
