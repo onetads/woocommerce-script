@@ -1,8 +1,8 @@
 <?php
 
-namespace Ras\Hooks;
+namespace RasOnet\Hooks;
 
-use Ras\Utilities\ProductUtil;
+use RasOnet\Utilities\ProductUtil;
 use WP_Query;
 use WP_REST_Request;
 use WP_REST_Response;
@@ -31,7 +31,7 @@ class ProductHook
         ]);
     }
 
-    public function return_required_html_elements(): void
+    public function ras_return_required_html_elements(): void
     {
         $args = [
             'post_type' => 'product',
