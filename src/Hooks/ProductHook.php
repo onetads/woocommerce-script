@@ -1,8 +1,8 @@
 <?php
 
-namespace Ras\Hooks;
+namespace RasOnet\Hooks;
 
-use Ras\Utilities\ProductUtil;
+use RasOnet\Utilities\ProductUtil;
 use WP_Query;
 use WP_REST_Request;
 use WP_REST_Response;

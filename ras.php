@@ -1,9 +1,13 @@
 <?php
 
-namespace Ras;
+namespace RasOnet;
 
-use Ras\Hooks\CheckVersionHook;
-use Ras\Hooks\ProductHook;
+if ( ! defined( 'ABSPATH' ) ) {
+    exit;
+}
+
+use RasOnet\Hooks\CheckVersionHook;
+use RasOnet\Hooks\ProductHook;
 use WP_REST_Server;
 
 include 'autoload.php';
@@ -21,12 +25,6 @@ include 'autoload.php';
  */
 class Ras
 {
-
-    public function __construct()
-    {
-        $GLOBALS['RAS']['PATH'] = plugin_dir_path(__FILE__);
-        $GLOBALS['RAS']['PLUGIN_FILENAME'] = basename(__FILE__);
-    }
 
     public function ras_register_routes()
     {
@@ -70,9 +68,7 @@ class Ras
      */
     public function ras_check_versions(): void
     {
-        $plugin_data = get_plugin_data(plugin_dir_path(__FILE__) . $GLOBALS['RAS']['PLUGIN_FILENAME']);
-        $GLOBALS['RAS']['VERSION'] = $plugin_data['Version'];
-        new CheckVersionHook();
+        new CheckVersionHook(plugin_basename( __FILE__ ));
     }
 }
 

@@ -1,6 +1,6 @@
 <?php
 
-namespace Ras\Utilities;
+namespace RasOnet\Utilities;
 
 use DOMDocument;
 use DOMXPath;
