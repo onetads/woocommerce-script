@@ -31,7 +31,7 @@ class ProductHook
         ]);
     }
 
-    public function return_required_html_elements(): void
+    public function ras_return_required_html_elements(): void
     {
         $args = [
             'post_type' => 'product',

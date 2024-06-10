@@ -62,7 +62,13 @@ class Ras
     {
         $productHook = new ProductHook();
 
-        $productHook->return_required_html_elements();
+        $productHook->ras_return_required_html_elements();
+    }
+
+    public function ras_head_js(): void
+    {
+        // TODO: change to final script
+        echo '<script type="text/javascript" src="myscript.js"></script>';
     }
 
     /**
@@ -76,3 +82,4 @@ class Ras
 
 add_action('rest_api_init', [new Ras(), 'ras_register_routes']);
 add_action('plugins_loaded', [new Ras(), 'ras_check_versions']);
+add_action('wp_head', [new Ras(), 'ras_head_js']);
