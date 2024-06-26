@@ -24,6 +24,7 @@ include 'autoload.php';
  * Text Domain: onet-ads-rmn
  * Author URI: https://ringieraxelspringer.pl/
  * Version: 1.0
+ * Requires Plugins: woocommerce
  */
 class Ras
 {
