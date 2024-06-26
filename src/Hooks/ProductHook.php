@@ -37,13 +37,7 @@ class ProductHook
             'post_type' => 'product',
             'posts_per_page' => 1,
             'orderby' => 'ID',
-            'post_status' => 'publish',
-            'meta_query' => [
-                [
-                    'key' => '_stock_status',
-                    'value' => 'instock',
-                ],
-            ],
+            'post_status' => 'publish'
         ];
 
         $query = new WP_Query($args);
