@@ -15,7 +15,7 @@ include 'autoload.php';
 /**
  * @package Ras
  * @version 1.0
- * @license Apache License 2.0
+ * @license GPLv3
  *
  * Plugin Name: Retail Media Network - Onet Ads
  * Plugin URI: https://panel.onetads.pl
