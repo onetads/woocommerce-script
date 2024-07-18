@@ -1,19 +1,6 @@
 <?php
-
-namespace RasOnet;
-
-if ( ! defined( 'ABSPATH' ) ) {
-    exit;
-}
-
-use RasOnet\Hooks\CheckVersionHook;
-use RasOnet\Hooks\ProductHook;
-use WP_REST_Server;
-
-include 'autoload.php';
-
 /**
- * @package Ras
+ * @package RasOnet
  * @version 1.0
  * @license GPLv3
  *
@@ -26,14 +13,27 @@ include 'autoload.php';
  * Version: 1.0
  * Requires Plugins: woocommerce
  */
-class Ras
+
+namespace RasOnet;
+
+if ( ! defined( 'ABSPATH' ) ) {
+    exit;
+}
+
+use RasOnet\Hooks\RasOnetCheckVersionHook;
+use RasOnet\Hooks\RasOnetProductHook;
+use WP_REST_Server;
+
+include 'autoload.php';
+
+class RasOnet
 {
 
-    public function ras_register_routes()
+    public function rasonet_register_routes()
     {
         register_rest_route('ras', '/get-product-html', [
             'methods' => WP_REST_Server::READABLE,
-            'callback' => [$this, 'ras_get_product_html'],
+            'callback' => [$this, 'rasonet_get_product_html'],
             'args' => [
                 'product_id' => [
                     'required' => true,
@@ -47,33 +47,33 @@ class Ras
 
         register_rest_route('ras', '/get-html-templates', [
             'methods' => WP_REST_Server::READABLE,
-            'callback' => [$this, 'ras_get_product_list_html'],
+            'callback' => [$this, 'rasonet_get_product_list_html'],
             'permission_callback' => '__return_true'
         ]);
     }
 
-    public function ras_get_product_html($request): void
+    public function rasonet_get_product_html($request): void
     {
-        $productHook = new ProductHook();
+        $productHook = new RasOnetProductHook();
 
-        $productHook->ras_get_product_html($request);
+        $productHook->rasonet_get_product_html($request);
     }
 
-    public function ras_get_product_list_html(): void
+    public function rasonet_get_product_list_html(): void
     {
-        $productHook = new ProductHook();
+        $productHook = new RasOnetProductHook();
 
-        $productHook->ras_return_required_html_elements();
+        $productHook->rasonet_return_required_html_elements();
     }
 
     /**
      * @return void
      */
-    public function ras_check_versions(): void
+    public function rasonet_check_versions(): void
     {
-        new CheckVersionHook(plugin_basename( __FILE__ ));
+        new RasOnetCheckVersionHook(plugin_basename( __FILE__ ));
     }
 }
 
-add_action('rest_api_init', [new Ras(), 'ras_register_routes']);
-add_action('plugins_loaded', [new Ras(), 'ras_check_versions']);
+add_action('rest_api_init', [new RasOnet(), 'rasonet_register_routes']);
+add_action('plugins_loaded', [new RasOnet(), 'rasonet_check_versions']);

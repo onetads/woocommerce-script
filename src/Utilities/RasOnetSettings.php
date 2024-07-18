@@ -2,7 +2,7 @@
 
 namespace RasOnet\Utilities;
 
-class RasSettings
+class RasOnetSettings
 {
     public const MIN_SUPPORTED_WOOCOMMERCE_VERSION = 8.5;
     public const MIN_SUPPORTED_WORDPRESS_VERSION = 6.3;

@@ -2,36 +2,36 @@
 
 namespace RasOnet\Hooks;
 
-use RasOnet\Utilities\ProductUtil;
+use RasOnet\Utilities\RasOnetProductUtil;
 use WP_Query;
 use WP_REST_Request;
 use WP_REST_Response;
 
-class ProductHook
+class RasOnetProductHook
 {
 
     /**
      * @param WP_REST_Request $request
      * @return void|WP_REST_Response
      */
-    public function ras_get_product_html(WP_REST_Request $request): void
+    public function rasonet_get_product_html(WP_REST_Request $request): void
     {
         $product_id = $request->get_param('product_id');
 
-        $productUtil = new ProductUtil($product_id);
-        if (!$productUtil->is_product_in_stock()) {
+        $productUtil = new RasOnetProductUtil($product_id);
+        if (!$productUtil->rasonet_is_product_in_stock()) {
             wp_send_json([
                 'message' => 'Product not found',
             ], 404);
         }
 
         wp_send_json([
-            'product_html' => $productUtil->get_product_html(),
-            'link_url' => $productUtil->get_product_link_html()
+            'product_html' => $productUtil->rasonet_get_product_html(),
+            'link_url' => $productUtil->rasonet_get_product_link_html()
         ]);
     }
 
-    public function ras_return_required_html_elements(): void
+    public function rasonet_return_required_html_elements(): void
     {
         $args = [
             'post_type' => 'product',
@@ -60,13 +60,13 @@ class ProductHook
             ], 404);
         }
 
-        $productUtil = new ProductUtil($productId);
+        $productUtil = new RasOnetProductUtil($productId);
 
-        $promoTags = $productUtil->get_product_promo_tag();
+        $promoTags = $productUtil->rasonet_get_product_promo_tag();
 
         wp_send_json([
-            'list_container_tag' => $productUtil->get_product_list_container_tag(),
-            'product_tag' => $productUtil->get_product_tag(),
+            'list_container_tag' => $productUtil->rasonet_get_product_list_container_tag(),
+            'product_tag' => $productUtil->rasonet_get_product_tag(),
             'original_promo_tag' => $promoTags['original'],
             'substitute_promo_tag' => $promoTags['substitute'],
         ]);
