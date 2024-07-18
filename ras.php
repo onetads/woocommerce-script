@@ -1,9 +1,5 @@
 <?php
 /**
- * @package RasOnet
- * @version 1.0
- * @license GPLv3
- *
  * Plugin Name: Retail Media Network - Onet Ads
  * Plugin URI: https://panel.onetads.pl
  * Description: Błyskawiczna integracja Woocommerce z Retail Media Network w Onet Ads. Wykorzystaj ten plugin, żeby szybko i intuicyjnie zaimplementować nasze formaty reklamowe w swoim sklepie.
@@ -12,6 +8,8 @@
  * Author URI: https://ringieraxelspringer.pl/
  * Version: 1.0
  * Requires Plugins: woocommerce
+ *
+ * @package RasOnet
  */
 
 namespace RasOnet;
