@@ -1,6 +1,6 @@
-=== Retail Media Network - Onet Ads ===
+=== Retail Media Network – Onet Ads ===
 
-Contributors: Ringier Axel Springer Polska sp. z o.o.
+Contributors: onetads
 Requires at least: 4.7
 Tested up to: 6.5.2
 Requires PHP: 7.3
@@ -55,14 +55,14 @@ Integration with Retail Media Network is free, and we do not require any form of
 = Searching for the Plugin =
 
     Go to “Plugins” in the WordPress admin panel, then select “Add New.”
-    Type “Retail Media Network - Onet Ads” into the search field and find the plugin developed
+    Type “Retail Media Network – Onet Ads” into the search field and find the plugin developed
     by Ringier Axel Springer Polska sp. z o.o.
-    Pick the right plugin, called “Retail Media Network - Onet Ads,” and hit “Install.”
+    Pick the right plugin, called “Retail Media Network – Onet Ads,” and hit “Install.”
     Activate the plugin once the installation is complete.
 
 = Downloading and Uploading the Plugin =
 
-    Get the “Retail Media Network - Onet Ads” plugin from the official WordPress website.
+    Get the “Retail Media Network – Onet Ads” plugin from the official WordPress website.
     In the WordPress admin panel, navigate to “Plugins” and select “Add New.”
     Click on “Upload Plugin,” choose the zip file you’ve downloaded, and press “Install Now”.
     Activate the plugin after it’s installed.
@@ -78,5 +78,5 @@ This project is licensed under the GNU General Public License v3.0 or later. Det
 
 == CHANGELOG ==
 
-= Retail Media Network - Onet Ads 1.0.0 =
+= Retail Media Network – Onet Ads 1.0.0 =
 * Initial release
