@@ -1,6 +1,7 @@
 === Retail Media Network – Onet Ads ===
 
 Contributors: onetads
+Tags: woocommerce, ecommerce, ads, shop, retail
 Requires at least: 4.7
 Tested up to: 6.5.2
 Requires PHP: 7.3
