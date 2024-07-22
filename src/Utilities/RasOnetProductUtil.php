@@ -7,7 +7,7 @@ use DOMXPath;
 use WC_Product;
 use WP_Post;
 
-class ProductUtil
+class RasOnetProductUtil
 {
     private int $product_id;
 
@@ -25,7 +25,7 @@ class ProductUtil
     /**
      * @return bool
      */
-    public function is_product_in_stock(): bool
+    public function rasonet_is_product_in_stock(): bool
     {
         /** @var WC_Product $product */
         $product = wc_get_product($this->product_id);
@@ -41,16 +41,16 @@ class ProductUtil
         return true;
     }
 
-    public function get_product_html(): string
+    public function rasonet_get_product_html(): string
     {
         global $post;
 
         $post = get_post($this->product_id);
 
-        return $this->get_content_for_template($post);
+        return $this->rasonet_get_content_for_template($post);
     }
 
-    public function get_product_list_container_tag(): string
+    public function rasonet_get_product_list_container_tag(): string
     {
         ob_start();
 
@@ -81,11 +81,11 @@ class ProductUtil
         return $deepestChild->tagName;
     }
 
-    public function get_product_tag(): ?string
+    public function rasonet_get_product_tag(): ?string
     {
         $dom = new DOMDocument();
         libxml_use_internal_errors(true);
-        $dom->loadHTML($this->get_product_html());
+        $dom->loadHTML($this->rasonet_get_product_html());
         libxml_clear_errors();
 
         $xpath = new DOMXPath($dom);
@@ -105,14 +105,14 @@ class ProductUtil
         return $productTag;
     }
 
-    public function get_product_link_html(): string
+    public function rasonet_get_product_link_html(): string
     {
         global $product;
 
         return esc_url(apply_filters( 'woocommerce_loop_product_link', get_the_permalink(), $product ));
     }
 
-    public function get_product_promo_tag(): array
+    public function rasonet_get_product_promo_tag(): array
     {
         global $product;
 
@@ -156,7 +156,7 @@ class ProductUtil
      * @param WP_Post $post
      * @return string
      */
-    private function get_content_for_template(
+    private function rasonet_get_content_for_template(
         WP_Post $post
     ): string
     {
