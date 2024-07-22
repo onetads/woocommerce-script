@@ -9,7 +9,7 @@ Stable tag: 1.0
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
-Rapid integration of Woocommerce with Retail Media Network in Onet Ads.
+Instant integration of WooCommerce with Retail Media Network in Onet Ads. Use this plugin to quickly and intuitively implement our advertising formats in your store.
 
 == Requirements ==
 
