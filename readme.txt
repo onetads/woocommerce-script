@@ -39,7 +39,7 @@ Rapid integration of Woocommerce with Retail Media Network in Onet Ads.
 
 == License ==
 
-This project is licensed under the GNU General Public License v2.0 or later. Details can be found in the LICENSE file.
+This project is licensed under the GNU General Public License v3.0 or later. Details can be found in the LICENSE file.
 
 
 == CHANGELOG ==
