@@ -10,37 +10,47 @@ Stable tag: 1.0
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
-Instant integration of WooCommerce with Retail Media Network in Onet Ads. Use this plugin to quickly and intuitively implement our advertising formats in your store.
+Instant integration of WooCommerce with Retail Media Network in Onet Ads. Use this plugin for effortless
+implementation in your store.
 
 == Description ==
 
-Instant integration of WooCommerce with Retail Media Network in Onet Ads. Use this plugin to quickly and intuitively implement our advertising formats in your store.
+Instant integration of WooCommerce with Retail Media Network in Onet Ads. Use this plugin to quickly and intuitively
+implement our advertising formats in your store.
 
 = Driving Sales in the Best Stores =
 
-Retail Media Network by Onet Ads is a dynamically developing advertising network that connects online stores with manufacturers.
+Retail Media Network by Onet Ads is a dynamically developing advertising network that connects online stores with
+manufacturers.
 
 [Join RMN - register with Onet Ads](https://panel.onetads.pl/)
 
 = Why is it worth it? =
 
-We create innovative, pioneering advertising services on the Polish market based on the ad inventory of the best retailers, strengthened by the power of Onet and RAS Polska services. Check out how it works:
+We create innovative, pioneering advertising services on the Polish market based on the ad inventory of the best
+retailers, strengthened by the power of Onet and RAS Polska services. Check out how it works:
 
 = Earn extra on your store’s inventory =
 
-Retail Media Network is a new revenue channel for your business. Being part of the network will provide you with additional budgets from advertisers. Importantly, traffic from ad campaigns stays in your store.
+Retail Media Network is a new revenue channel for your business. Being part of the network will provide you with
+additional budgets from advertisers. Importantly, traffic from ad campaigns stays in your store.
 
 = Gain valuable traffic from RASP inventory =
 
-Retail Media Network is the synergy of advertising inventory of stores and RASP. In our services, we display advertising formats that direct users to stores present in the network. For you, this is a source of valuable traffic.
+Retail Media Network is the synergy of advertising inventory of stores and RASP. In our services,
+we display advertising formats that direct users to stores present in the network. For you,
+this is a source of valuable traffic.
 
 = Use the modern Onet Ads panel =
 
-You will manage your presence and activity in the Retail Media Network using Onet Ads. It is a friendly and intuitive self-service panel. We provide a transparent ecosystem, standardized workflow, clear cooperation rules, and ongoing support whenever you need it.
+You will manage your presence and activity in the Retail Media Network using Onet Ads.
+It is a friendly and intuitive self-service panel. We provide a transparent ecosystem,
+standardized workflow, clear cooperation rules, and ongoing support whenever you need it.
 
 = Discover the benefits of RMN with free integration =
 
-Integration with Retail Media Network is free, and we do not require any form of business exclusivity. For the purposes of integration, we will provide you with the necessary documentation and expert support.
+Integration with Retail Media Network is free, and we do not require any form of business exclusivity.
+For the purposes of integration, we will provide you with the necessary documentation and expert support.
 
 = Join the Retail Media Network in Onet Ads today =
 
